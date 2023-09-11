@@ -1,0 +1,39 @@
+<article class="ficha">
+
+    <!-- <img class="imagen-piso" src="assets/img/no-image.jpg" alt=""> -->
+
+    <app-carousel-ficha [datosCarousel]="datos"></app-carousel-ficha>
+
+    <h3 class="titular">{{datos.titular}}</h3>
+    <p class="precio"><span>{{datos.precio | euros}}</span></p>
+
+    <footer class="footer-ficha">
+
+        <div class="contenedor-boton-info">
+            <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/inmueble',datos.id]">+Info</button>
+        </div>
+
+        <div class="contenedor-iconos">
+
+            <div class="contenedor-banhos">
+                <span class="numero-elementos">{{datos.nbanhos}}</span>
+                <img class="icono" src="assets/img/004-bathtub.svg" alt="icono baño">
+            </div>
+        
+            <div class="contenedor-habitaciones">
+                <span class="numero-elementos">{{datos.nhabitaciones}}</span>
+                <img class="icono" src="assets/img/017-bed.svg" alt="icono habitaciones">
+            </div>
+        
+            <div class="contenedor-altura">
+                <span class="numero-elementos">{{datos.planta}}</span>
+                <img class="icono" src="assets/img/011-office building.svg" alt="icono altura">
+            </div>
+
+
+        </div>
+
+
+    </footer>
+
+</article>

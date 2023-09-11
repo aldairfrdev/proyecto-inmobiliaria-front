@@ -1,0 +1,33 @@
+<app-preloader *ngIf="!provincia"></app-preloader>
+
+<div class="contenedor" *ngIf="provincia">
+
+  <h1>Editar provincia</h1>
+
+
+  <div> 
+
+    <form class="mx-auto" #form="ngForm" (ngSubmit)="edit()">
+
+      <div class="mb-3">
+        <label for="provincia">PROVINCIA*:</label>
+        <input id="provincia" type="text" name="provincia" required class="form-control" autocomplete="off" [(ngModel)]="provincia.nombre">
+      </div>
+
+      <div class="mb-3">
+        <label class="label-check" for="activo">ACTIVO</label>
+        <input id="activo" type="checkbox" name="activo" class="form-check-input" [(ngModel)]="provincia.activo">
+      </div>
+
+      <div class="contenedor-boton">
+        <button type="submit" class="btn btn-sm btn-primary" [disabled]="form.invalid">Editar</button>
+      </div>
+
+
+    </form>
+
+
+  </div>
+
+
+</div>

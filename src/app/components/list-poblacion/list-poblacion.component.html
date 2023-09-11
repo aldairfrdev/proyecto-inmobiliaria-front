@@ -1,0 +1,32 @@
+<app-preloader *ngIf="!aDatos"></app-preloader>
+
+<div class="contenedor" *ngIf="aDatos">
+
+  <h1>Listado de poblaciones</h1>
+
+  <div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">POBLACIÓN</th>
+          <th class="activo" scope="col">ACTIVO</th>
+          <th scope="col">EDITAR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dato of aDatos">
+          <th scope="row">{{dato.id}}</th>
+          <td>{{dato.nombre}}</td>
+          <td [ngClass]="{'color-rojo': dato.activo==0, 'color-verde': dato.activo==1}">{{dato.activo | activo}}</td>
+          <td><button type="button" class="btn btn-success btn-sm" [routerLink]="['/edit-poblacion',dato.id]">Editar</button></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+</div>

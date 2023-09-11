@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+/* ================================================= */
+/* COLORES CORPORATIVOS*/
+/* ================================================= */
+/* #e8b610 color amarillo logo */
+/* #256197 color azul logo */
+/* #b1b3b4 color gris logo */
+
+:root{
+
+    --azul-corporativo:#256197;
+    --amarillo-corporativo:#e8b610;
+    --gris-corporativo:#b1b3b4;
+    --gris-corporativo-oscuro:#999999;
+}
+
+
+/* ================================================= */
+/* FIRST MOBILE */
+/* ================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    border:0;
+    outline:none;
+    box-sizing:border-box;
+
+}
+
+body,html{
+    
+    height: 100%;
+    font-size: 16px;
+}
+
+h1{
+
+    font-size: 24px;
+    margin:0 0 15px 0;
+    border-bottom: 1px var(--gris-corporativo) solid;
+
+}
+
+h2{
+
+    font-size: 18px;
+    margin:0;
+
+}
+
+h3{
+
+    font-size: 16px;
+    margin:0;
+
+}
+
+a{
+
+    text-decoration: none;
+
+}
+
+
+
+

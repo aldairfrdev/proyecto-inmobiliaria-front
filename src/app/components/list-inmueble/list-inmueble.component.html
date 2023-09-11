@@ -1,0 +1,38 @@
+<app-preloader *ngIf="!aDatos"></app-preloader>
+
+<div class="contenedor" *ngIf="aDatos">
+
+  <h1>Listado de inmuebles</h1>
+
+  <div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">TIPO</th>
+          <th scope="col">VIA</th>
+          <th scope="col">PROVINCIA</th>
+          <th class="activo" scope="col">ACTIVO</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dato of aDatos">
+          <th scope="row">{{dato.id}}</th>
+          <td>{{dato.tipo.nombre}}</td>
+          <td>{{dato.direccionCompleta}}</td>
+          <td>{{dato.poblacion.provincia.nombre}}</td>
+          <td [ngClass]="{'color-rojo': dato.activo==0, 'color-verde': dato.activo==1}">{{dato.activo | activo}}</td>
+          <td><button type="button" class="btn btn-success btn-sm" [routerLink]="['/edit-inmueble',dato.id]">Editar</button></td>
+          <td><button type="button" class="btn btn-secondary btn-sm" [routerLink]="['/add-imagen',dato.id]">Añadir imagen</button></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+</div>
+

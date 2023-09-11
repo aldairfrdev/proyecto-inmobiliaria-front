@@ -1,0 +1,19 @@
+<div class="contenedor">
+
+    <h1>Añadir provincia</h1>
+  
+    <form class="mx-auto" #form="ngForm" (ngSubmit)="add()">
+  
+      <div class="mb-3">
+        <label for="provincia">PROVINCIA*:</label>
+        <input id="provincia" type="text" name="provincia" required class="form-control" autocomplete="off" [(ngModel)]="provincia.nombre" style="text-transform:uppercase">
+      </div>
+  
+      <div class="contenedor-boton">
+        <button type="submit" class="btn btn-md btn-primary" [disabled]="form.invalid">Añadir</button>
+      </div>
+  
+  
+    </form>
+  
+  </div>

@@ -1,0 +1,65 @@
+<app-preloader *ngIf="!inmueble"></app-preloader>
+
+<div class="contenedor"  *ngIf="inmueble">
+
+    <h1>{{inmueble.titular}}</h1>
+    
+    <app-carousel-ficha [datosCarousel]="inmueble"></app-carousel-ficha>
+
+    
+    <div class="contenedor-iconos">
+        
+        <div class="contenedor-banhos">
+            <span class="numero-elementos">{{inmueble.nbanhos}}</span>
+            <img class="icono" src="assets/img/004-bathtub.svg" alt="icono baño">
+        </div>
+    
+        <div class="contenedor-habitaciones">
+            <span class="numero-elementos">{{inmueble.nhabitaciones}}</span>
+            <img class="icono" src="assets/img/017-bed.svg" alt="icono habitaciones">
+        </div>
+    
+        <div class="contenedor-altura">
+            <span class="numero-elementos">{{inmueble.planta}}</span>
+            <img class="icono" src="assets/img/011-office building.svg" alt="icono altura">
+        </div>
+
+    </div>
+
+    <p class="mt-3 precio">{{inmueble.precio | euros}} </p>
+
+
+    
+
+    <h5 class="subseccion">Características</h5>
+    <div class="carac-basicas">
+        
+        <div>
+            <i class="fa-solid fa-vector-square"></i><span> Superficie construida: {{inmueble.superficieConstruida}}m²</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-building"></i><span> {{inmueble.apertura | titlecase}}</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-couch"></i><span> {{inmueble.amueblado | amueblado}}</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-house-fire"></i><span> Calefacción: {{inmueble.tipoCalefaccion | titlecase}}</span>
+        </div>
+
+    </div>
+    
+    <h4 class="mt-4" style="font-weight:600">Descripción</h4>
+    <div class="descripcion">
+        
+        <p>
+            {{inmueble.descripcion}}
+        </p>
+    </div>
+
+
+
+</div>
