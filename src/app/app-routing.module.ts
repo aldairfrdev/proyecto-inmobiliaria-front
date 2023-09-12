@@ -16,6 +16,7 @@ import { AddInmuebleComponent } from './components/add-inmueble/add-inmueble.com
 import { ListInmuebleComponent } from './components/list-inmueble/list-inmueble.component';
 import { EditInmuebleComponent } from './components/edit-inmueble/edit-inmueble.component';
 import { AddImagenComponent } from './components/add-imagen/add-imagen.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
 
@@ -35,8 +36,9 @@ const routes: Routes = [
   {path:"list-poblacion",component:ListPoblacionComponent},
   {path:"edit-poblacion/:id",component:EditPoblacionComponent},
   {path:"add-imagen/:id",component:AddImagenComponent},
+  {path:"login",component:LoginComponent},
   {path:"error",component:ErrorComponent},
-  {path:"**",component:ErrorComponent}//Poner siempre en la última posición!!!.Path por si la ruta no existe
+  {path:"**",component:ErrorComponent} //Poner siempre en la última posición!!!.Path por si la ruta no existe
  
 ];
 

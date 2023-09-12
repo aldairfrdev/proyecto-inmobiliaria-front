@@ -55,3 +55,10 @@ export interface Inmueble{
     direccionCompleta?:string;
 
 }
+
+
+export interface Credentials {
+    
+    username:string;
+    password:string;
+}

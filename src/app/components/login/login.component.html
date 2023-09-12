@@ -1,0 +1,27 @@
+<div class="contenedor">
+
+    <h1>Login</h1>
+
+    <form class="mx-auto" #form="ngForm" (ngSubmit)="logIn()" [formGroup]="usuarioForm">
+
+        <div class="mb-3">
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email" required [class.is-invalid]="usuarioForm.get('elEmail')?.invalid && usuarioForm.get('elEmail')?.touched"
+                class="form-control" formControlName="elEmail" autocomplete="off" [(ngModel)]="creds.username">
+        </div>
+        
+        <div class="mb-3">
+            <label for="password">Contraseña:</label>
+            <input id="password" type="password" name="password" required [class.is-invalid]="usuarioForm.get('elPassword')?.invalid && usuarioForm.get('elPassword')?.touched"
+                class="form-control" formControlName="elPassword" autocomplete="off" [(ngModel)]="creds.password">
+        </div>
+        
+        <div class="contenedor-boton">
+            <button type="submit" class="btn btn-md btn-primary" [disabled]="form.invalid">Entrar</button>
+        </div>
+
+
+    </form>
+
+
+</div>

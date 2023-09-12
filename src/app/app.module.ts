@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,6 +37,7 @@ import { ListInmuebleComponent } from './components/list-inmueble/list-inmueble.
 import { EditInmuebleComponent } from './components/edit-inmueble/edit-inmueble.component';
 import { AddImagenComponent } from './components/add-imagen/add-imagen.component';
 import { AmuebladoPipe } from './pipes/amueblado.pipe';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -72,14 +73,16 @@ import { AmuebladoPipe } from './pipes/amueblado.pipe';
     ListInmuebleComponent,
     EditInmuebleComponent,
     AddImagenComponent,
-    AmuebladoPipe
+    AmuebladoPipe,
+    LoginComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [/* 
     {
