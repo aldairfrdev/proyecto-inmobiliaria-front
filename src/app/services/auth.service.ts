@@ -80,4 +80,17 @@ export class AuthService {
 
   }
 
+  getUsuario():string{
+
+    
+    if(this.isLoggedIn()){
+      
+      let token = localStorage.getItem('token');
+      let decodedJWT = JSON.parse(window.atob(token.split('.')[1]));
+      return decodedJWT.usuario;
+    }
+
+    return "null";
+  }
+
 }

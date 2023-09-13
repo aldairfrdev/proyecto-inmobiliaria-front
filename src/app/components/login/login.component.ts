@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Credentials } from 'src/app/models/entity';
 import { AuthService } from 'src/app/services/auth.service';
+import { CommunicationService } from 'src/app/services/communication.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit, OnDestroy{
 
   token:string;
+  logueo:boolean;
+  suscripcion:Subscription;
 
   usuarioForm = new FormGroup({
 
@@ -32,9 +36,30 @@ export class LoginComponent {
   constructor(
 
     private _router:Router,
-    private _authService:AuthService
+    private _authService:AuthService,
+    private _communicationService:CommunicationService
 
   ){ }
+
+
+  ngOnDestroy(): void {
+    
+    this.suscripcion.unsubscribe();
+  }
+
+
+  ngOnInit(): void {
+    
+    this.suscripcion = this._communicationService.logueo$.subscribe({
+
+      next: (result) => {this.logueo = result}
+      ,
+      error: (error) => {this._router.navigate(["/error"])}
+      ,
+      complete: () => {}
+
+    })
+  }
   
   
   logIn():void {
@@ -45,6 +70,7 @@ export class LoginComponent {
         
         console.log(result);
         this._authService.loadTokenLocalStorage(result);
+        this._communicationService.cambioLogueo(true);
       }
       ,
       error: (error) => {console.log(error)}
